@@ -4,6 +4,7 @@ import com.example.demo.Domain.ContactDetails;
 import com.example.demo.Domain.Player;
 import com.example.demo.Domain.PlayerSubscription;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,7 +12,7 @@ import java.util.Map;
  */
 public class PlayerFactory {
 
-    public static Player getPlayer (Map<String, String> values, ContactDetails contactDetails, PlayerSubscription playerSubscription){
+    public static Player getPlayer (Map<String, String> values, ContactDetails contactDetails, List<PlayerSubscription> playerSubscription){
 
         Player player = new Player.Builder()
                 .clubID(values.get("clubID"))
@@ -19,6 +20,8 @@ public class PlayerFactory {
                 .lastName(values.get("lastName"))
                 .DOB(values.get("DOB"))
                 .ID(0)
+                .position(values.get("position"))
+                .strongFoot(values.get("strongFoot"))
                 .status(values.get("status"))
                 .contactDetails(contactDetails)
                 .playerSubscription(playerSubscription)
@@ -26,3 +29,5 @@ public class PlayerFactory {
         return player;
     }
 }
+
+
