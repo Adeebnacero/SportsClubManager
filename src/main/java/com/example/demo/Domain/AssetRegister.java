@@ -124,4 +124,17 @@ public class AssetRegister implements Serializable {
     public int hashCode() {
         return assetID.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "AssetRegister{" +
+                "assetID='" + assetID + '\'' +
+                ", date=" + date +
+                ", assetName='" + assetName + '\'' +
+                ", assetDescription='" + assetDescription + '\'' +
+                ", assetValue=" + assetValue +
+                ", assetQuantity=" + assetQuantity +
+                ", assetState='" + assetState + '\'' +
+                '}';
+    }
 }

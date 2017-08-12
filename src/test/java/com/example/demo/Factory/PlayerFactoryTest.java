@@ -7,9 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.testng.Assert.assertEquals;
 
@@ -19,27 +17,43 @@ import static org.testng.Assert.assertEquals;
 public class PlayerFactoryTest {
 
     Player player;
-    ContactDetails contactDetails;
-    List<PlayerSubscription> playerSubscription;
     Map<String, String> play;
-    Map<String, String> con;
-    Map<String, String> sub;
+
+    ContactDetails contactDetails;
+    Map<String, String> contacts;
+
+    PlayerSubscription playerSubscription;
+    Map<String, String> playerSubs;
 
     @Before
     public void setUp() throws Exception {
 
         play = new HashMap<String, String>();
-        play.put("clubID","001");
-        play.put("firstName","Adeeb");
-        play.put("lastName","Nac");
+        play.put("clubID", "001");
+        play.put("firstName", "Adeeb");
+        play.put("lastName", "Nac");
+        play.put("DOB", "88");
+        play.put("ID", "880204");
+        play.put("position", "midfield");
+        play.put("strongFoot", "right");
+        play.put("status", "active");
 
-        con = new HashMap<String, String>();
-        con.put("contactFirstName","Dullah");
+        contacts = new HashMap<String, String>();
+        contacts.put("playerContactNumber","123231231");
+        contacts.put("contactFirstName","Bob");
+        contacts.put("contactLastName","Builder");
+        contacts.put("relationship","Friend");
+        contacts.put("contactHomeNumber","002023123");
+        contacts.put("contactCellphoneNumber","123123123123");
 
-        sub = new HashMap<String, String>();
-        sub.put("100","100");
+        contactDetails = ContactDetailsFactory.getContactDetails(contacts);
+
+        playerSubs = new HashMap<String, String>();
+        playerSubs.put("subscriptionID","001");
+
+        playerSubscription = PlayerSubscriptionFactory.getPlayerSubscription(playerSubs,new Date(),1000,50);
+
     }
-
     @After
     public void tearDown() throws Exception {
 
@@ -50,7 +64,7 @@ public class PlayerFactoryTest {
 
         player = PlayerFactory.getPlayer(play,contactDetails,playerSubscription);
 
-        System.out.println(player.getContactDetails());
+        System.out.println(player.toString());
         assertEquals(true, player.equals(player));
     }
 }

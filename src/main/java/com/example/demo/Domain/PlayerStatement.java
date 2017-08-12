@@ -58,6 +58,11 @@ public class PlayerStatement {
             this.balance = value;
             return this;
         }
+
+        public PlayerStatement build(){
+
+            return new PlayerStatement(this);
+        }
     }
 
     public String getStatementID() {
@@ -94,5 +99,16 @@ public class PlayerStatement {
     @Override
     public int hashCode() {
         return player.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "PlayerStatement{" +
+                "statementID='" + statementID + '\'' +
+                ", date=" + date +
+                ", player=" + player +
+                ", playerSubscription=" + playerSubscription +
+                ", balance=" + balance +
+                '}';
     }
 }

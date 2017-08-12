@@ -39,34 +39,39 @@ public class MatchResults implements Serializable {
         private String opponentName;
         private List<TeamDetails> teamDetails;
 
-        public Builder setResultID(String value) {
+        public Builder resultID(String value) {
             this.resultID = value;
             return this;
         }
 
-        public Builder setDate(Date value) {
+        public Builder date(Date value) {
             this.date = value;
             return this;
         }
 
-        public Builder setHomeScore(int value) {
+        public Builder homeScore(int value) {
             this.homeScore = value;
             return this;
         }
 
-        public Builder setAwayScore(int value) {
+        public Builder awayScore(int value) {
             this.awayScore = value;
             return this;
         }
 
-        public Builder setOpponentName(String value) {
+        public Builder opponentName(String value) {
             this.opponentName = value;
             return this;
         }
 
-        public Builder setTeamDetails(List<TeamDetails> value) {
+        public Builder teamDetails(List<TeamDetails> value) {
             this.teamDetails = value;
             return this;
+        }
+
+        public MatchResults build(){
+
+            return new MatchResults(this);
         }
     }
 
@@ -108,5 +113,17 @@ public class MatchResults implements Serializable {
     @Override
     public int hashCode() {
         return resultID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "MatchResults{" +
+                "resultID='" + resultID + '\'' +
+                ", date=" + date +
+                ", homeScore=" + homeScore +
+                ", awayScore=" + awayScore +
+                ", opponentName='" + opponentName + '\'' +
+                ", teamDetails=" + teamDetails +
+                '}';
     }
 }

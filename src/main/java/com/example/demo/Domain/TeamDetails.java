@@ -112,4 +112,16 @@ public class TeamDetails implements Serializable{
     public int hashCode() {
         return teamID.hashCode();
     }
+
+    @Override
+    public String toString() {
+        return "TeamDetails{" +
+                "teamID='" + teamID + '\'' +
+                ", teamName='" + teamName + '\'' +
+                ", teamDivision='" + teamDivision + '\'' +
+                ", playerTotal=" + playerTotal +
+                ", coach=" + coach +
+                ", player=" + player +
+                '}';
+    }
 }

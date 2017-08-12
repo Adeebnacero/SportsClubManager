@@ -10,9 +10,9 @@ public class PlayerSubscription implements Serializable {
 
     private String subscriptionID;
     private Date date;
-    private float fee;
-    private float discount;
-    private float total;
+    private double fee;
+    private double discount;
+    private double total;
 
     private PlayerSubscription() {
     }
@@ -23,16 +23,15 @@ public class PlayerSubscription implements Serializable {
         this.date = builder.date;
         this.discount = builder.discount;
         this.fee = builder.fee;
-        this.total = builder.total;
     }
 
     public static class Builder {
 
         private String subscriptionID;
         private Date date;
-        private float fee;
-        private float discount;
-        private float total;
+        private double fee;
+        private double discount;
+        private double total;
 
         public Builder subscriptionID(String value) {
             this.subscriptionID = value;
@@ -44,23 +43,23 @@ public class PlayerSubscription implements Serializable {
             return this;
         }
 
-        public Builder discount(float value) {
-            this.discount = value;
-            return this;
-        }
-
-        public Builder fee(float value) {
+        public Builder fee(double value) {
             this.fee = value;
             return this;
         }
 
-        public Builder total(float value) {
+        public Builder discount(double value) {
+            this.discount = value;
+            return this;
+        }
+
+        public Builder total(double value) {
             this.total = value;
             return this;
         }
 
-        public PlayerSubscription build()
-        {
+        public PlayerSubscription build(){
+
             return new PlayerSubscription(this);
         }
     }
@@ -73,15 +72,17 @@ public class PlayerSubscription implements Serializable {
         return date;
     }
 
-    public float getDiscount() {
-        return discount;
-    }
-
-    public float getFee() {
+    public double getFee() {
         return fee;
     }
 
-    public float getTotal() {
+    public double getDiscount() {
+        return discount;
+    }
+
+    public double getTotal() {
+
+        total = fee - discount;
         return total;
     }
 
@@ -92,12 +93,23 @@ public class PlayerSubscription implements Serializable {
 
         PlayerSubscription that = (PlayerSubscription) o;
 
-        return Float.compare(that.total, total) == 0;
+        return subscriptionID.equals(that.subscriptionID);
 
     }
 
     @Override
     public int hashCode() {
-        return (total != +0.0f ? Float.floatToIntBits(total) : 0);
+        return subscriptionID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "***PlayerSubscription***" + '\n' +
+                "SubscriptionID: " + subscriptionID + '\n' +
+                "Date: " + date + '\n' +
+                "Fee: R" + fee + '\n' +
+                "Discount: R" + discount + '\n' +
+                "Total: R" + getTotal() + '\n' +
+                "************";
     }
 }

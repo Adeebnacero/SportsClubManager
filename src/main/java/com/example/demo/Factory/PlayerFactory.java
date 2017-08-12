@@ -4,7 +4,6 @@ import com.example.demo.Domain.ContactDetails;
 import com.example.demo.Domain.Player;
 import com.example.demo.Domain.PlayerSubscription;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,14 +11,14 @@ import java.util.Map;
  */
 public class PlayerFactory {
 
-    public static Player getPlayer (Map<String, String> values, ContactDetails contactDetails, List<PlayerSubscription> playerSubscription){
+    public static Player getPlayer (Map<String, String> values, ContactDetails contactDetails, PlayerSubscription playerSubscription){
 
         Player player = new Player.Builder()
                 .clubID(values.get("clubID"))
                 .firstName(values.get("firstName"))
                 .lastName(values.get("lastName"))
                 .DOB(values.get("DOB"))
-                .ID(0)
+                .ID(values.get("ID"))
                 .position(values.get("position"))
                 .strongFoot(values.get("strongFoot"))
                 .status(values.get("status"))

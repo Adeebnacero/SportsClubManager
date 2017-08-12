@@ -65,6 +65,11 @@ public class ContactDetails implements Serializable {
             this.relationship = value;
             return this;
         }
+
+        public ContactDetails build(){
+
+            return new ContactDetails(this);
+        }
     }
 
     public String getPlayerContactNumber() {
@@ -105,5 +110,17 @@ public class ContactDetails implements Serializable {
     @Override
     public int hashCode() {
         return contactFirstName.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "***ContactDetails***" + '\n' +
+                "PlayerContactNumber: " + playerContactNumber + '\n' +
+                "ContactFirstName: " + contactFirstName + '\n' +
+                "ContactLastName: " + contactLastName + '\n' +
+                "Relationship: " + relationship + '\n' +
+                "ContactHomeNumber: " + contactHomeNumber + '\n' +
+                "ContactCellphoneNumber: " + contactCellphoneNumber + '\n' +
+                "******************" + '\n';
     }
 }

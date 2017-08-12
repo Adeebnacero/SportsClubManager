@@ -18,7 +18,7 @@ public class Administrator implements Serializable {
     private String clubID;
     private String firstName;
     private String lastName;
-    private Long DOB;
+    private String DOB;
     private String status;
     private ContactDetails contactDetails;
     private List<Wages> wages;
@@ -42,7 +42,7 @@ public class Administrator implements Serializable {
         private String clubID;
         private String firstName;
         private String lastName;
-        private Long DOB;
+        private String DOB;
         private String status;
         private ContactDetails contactDetails;
         private List<Wages> wages;
@@ -62,7 +62,7 @@ public class Administrator implements Serializable {
             return this;
         }
 
-        public Builder DOB(Long value) {
+        public Builder DOB(String value) {
             this.DOB = value;
             return this;
         }
@@ -72,12 +72,12 @@ public class Administrator implements Serializable {
             return this;
         }
 
-        public Builder contact(ContactDetails value) {
+        public Builder contactDetails(ContactDetails value) {
             this.contactDetails = value;
             return this;
         }
 
-        public Builder setWages(List<Wages> value) {
+        public Builder wages(List<Wages> value) {
             this.wages = value;
             return this;
         }
@@ -92,14 +92,6 @@ public class Administrator implements Serializable {
         return clubID;
     }
 
-    public ContactDetails getContactDetails() {
-        return contactDetails;
-    }
-
-    public Long getDOB() {
-        return DOB;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -108,8 +100,16 @@ public class Administrator implements Serializable {
         return lastName;
     }
 
+    public String getDOB() {
+        return DOB;
+    }
+
     public String getStatus() {
         return status;
+    }
+
+    public ContactDetails getContactDetails() {
+        return contactDetails;
     }
 
     public List<Wages> getWages() {
@@ -130,5 +130,18 @@ public class Administrator implements Serializable {
     @Override
     public int hashCode() {
         return clubID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Administrator{" +
+                "clubID='" + clubID + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", DOB='" + DOB + '\'' +
+                ", status='" + status + '\'' +
+                ", contactDetails=" + contactDetails +
+                ", wages=" + wages +
+                '}';
     }
 }

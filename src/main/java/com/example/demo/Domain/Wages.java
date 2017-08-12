@@ -99,4 +99,15 @@ public class Wages {
     public int hashCode() {
         return (total != +0.0f ? Float.floatToIntBits(total) : 0);
     }
+
+    @Override
+    public String toString() {
+        return "Wages{" +
+                "wageID='" + wageID + '\'' +
+                ", date=" + date +
+                ", hours=" + hours +
+                ", rate=" + rate +
+                ", total=" + total +
+                '}';
+    }
 }

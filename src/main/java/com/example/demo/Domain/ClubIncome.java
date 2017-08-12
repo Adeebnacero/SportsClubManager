@@ -22,6 +22,7 @@ public class ClubIncome implements Serializable{
     public ClubIncome (Builder builder){
 
         this.incomeID = builder.incomeID;
+        this.date = builder.date;
         this.incomeName = builder.incomeName;
         this.incomeDescription = builder.incomeDescription;
         this.incomeAmount = builder.incomeAmount;
@@ -32,6 +33,7 @@ public class ClubIncome implements Serializable{
     public static class Builder{
 
         private String incomeID;
+        private Date date;
         private String incomeName;
         private String incomeDescription;
         private float incomeAmount;
@@ -40,6 +42,11 @@ public class ClubIncome implements Serializable{
 
         public Builder incomeID(String value) {
             this.incomeID = value;
+            return this;
+        }
+
+        public Builder date(Date value) {
+            this.date = value;
             return this;
         }
 
@@ -67,10 +74,19 @@ public class ClubIncome implements Serializable{
             this.incomeTotal = value;
             return this;
         }
+
+        public ClubIncome build(){
+
+            return new ClubIncome(this);
+        }
     }
 
     public String getIncomeID() {
         return incomeID;
+    }
+
+    public Date getDate() {
+        return date;
     }
 
     public String getIncomeName() {
@@ -107,5 +123,18 @@ public class ClubIncome implements Serializable{
     @Override
     public int hashCode() {
         return incomeID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "ClubIncome{" +
+                "incomeID='" + incomeID + '\'' +
+                ", date=" + date +
+                ", incomeName='" + incomeName + '\'' +
+                ", incomeDescription='" + incomeDescription + '\'' +
+                ", incomeAmount=" + incomeAmount +
+                ", incomeVAT=" + incomeVAT +
+                ", incomeTotal=" + incomeTotal +
+                '}';
     }
 }

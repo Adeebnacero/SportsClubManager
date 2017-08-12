@@ -60,6 +60,11 @@ public class ClubFinance implements Serializable{
             this.clubExpense = value;
             return this;
         }
+
+        public ClubFinance build(){
+
+            return new ClubFinance(this);
+        }
     }
 
     public String getFinanceID() {
@@ -96,6 +101,17 @@ public class ClubFinance implements Serializable{
     @Override
     public int hashCode() {
         return financeID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "ClubFinance{" +
+                "financeID='" + financeID + '\'' +
+                ", date=" + date +
+                ", month='" + month + '\'' +
+                ", clubIncome=" + clubIncome +
+                ", clubExpense=" + clubExpense +
+                '}';
     }
 }
 

@@ -11,7 +11,7 @@ public class Coach implements Serializable {
     private String clubID;
     private String firstName;
     private String lastName;
-    private int DOB;
+    private String DOB;
     private String status;
     private ContactDetails contactDetails;
     private List<Wages> wages;
@@ -35,7 +35,7 @@ public class Coach implements Serializable {
         private String clubID;
         private String firstName;
         private String lastName;
-        private int DOB;
+        private String DOB;
         private String status;
         private ContactDetails contactDetails;
         private List<Wages> wages;
@@ -55,7 +55,7 @@ public class Coach implements Serializable {
             return this;
         }
 
-        public Builder setDOB(int value) {
+        public Builder DOB(String value) {
             this.DOB = value;
             return this;
         }
@@ -65,7 +65,7 @@ public class Coach implements Serializable {
             return this;
         }
 
-        public Builder contact(ContactDetails value) {
+        public Builder contactDetails(ContactDetails value) {
             this.contactDetails = value;
             return this;
         }
@@ -89,7 +89,7 @@ public class Coach implements Serializable {
         return contactDetails;
     }
 
-    public int getDOB() {
+    public String getDOB() {
         return DOB;
     }
 
@@ -123,5 +123,18 @@ public class Coach implements Serializable {
     @Override
     public int hashCode() {
         return clubID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Coach{" +
+                "clubID='" + clubID + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", DOB='" + DOB + '\'' +
+                ", status='" + status + '\'' +
+                ", contactDetails=" + contactDetails +
+                ", wages=" + wages +
+                '}';
     }
 }

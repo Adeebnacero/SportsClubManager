@@ -1,7 +1,6 @@
 package com.example.demo.Domain;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * Created by Adeebo on 2017/08/04.
@@ -12,12 +11,12 @@ public class Player implements Serializable{
     private String firstName;
     private String lastName;
     private String DOB;
-    private int ID;
+    private String ID;
     private String position;
     private String strongFoot;
     private String status;
     private ContactDetails contactDetails;
-    private List<PlayerSubscription> playerSubscription;
+    private PlayerSubscription playerSubscription;
 
     public Player() {
     }
@@ -42,12 +41,12 @@ public class Player implements Serializable{
         private String firstName;
         private String lastName;
         private String DOB;
-        private int ID;
+        private String ID;
         private String position;
         private String strongFoot;
         private String status;
         private ContactDetails contactDetails;
-        private List<PlayerSubscription> playerSubscription;
+        private PlayerSubscription playerSubscription;
 
         public Builder clubID(String value) {
             this.clubID = value;
@@ -69,7 +68,7 @@ public class Player implements Serializable{
             return this;
         }
 
-        public Builder ID(int value) {
+        public Builder ID(String value) {
             this.ID = value;
             return this;
         }
@@ -89,7 +88,7 @@ public class Player implements Serializable{
             return this;
         }
 
-        public Builder playerSubscription(List<PlayerSubscription> value) {
+        public Builder playerSubscription(PlayerSubscription value) {
             this.playerSubscription = value;
             return this;
         }
@@ -121,7 +120,7 @@ public class Player implements Serializable{
         return DOB;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
@@ -141,7 +140,7 @@ public class Player implements Serializable{
         return contactDetails;
     }
 
-    public List<PlayerSubscription> getPlayerSubscription() {
+    public PlayerSubscription getPlayerSubscription() {
         return playerSubscription;
     }
 
@@ -159,5 +158,21 @@ public class Player implements Serializable{
     @Override
     public int hashCode() {
         return clubID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "***Player***" +'\n' +
+                "ClubID: " + clubID + '\n' +
+                "FirstName: " + firstName + '\n' +
+                "LastName: " + lastName + '\n' +
+                "DOB: " + DOB + '\n' +
+                "ID: " + ID + '\n' +
+                "Position: " + position + '\n' +
+                "StrongFoot: " + strongFoot + '\n' +
+                "Status: " + status + '\n'
+                +"******************" + '\n'
+                + contactDetails
+                + playerSubscription + '\n';
     }
 }

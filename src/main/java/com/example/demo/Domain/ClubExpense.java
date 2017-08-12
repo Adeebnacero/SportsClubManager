@@ -23,6 +23,7 @@ public class ClubExpense implements Serializable{
     public ClubExpense (Builder builder){
 
         this.expenseID = builder.expenseID;
+        this.date = builder.date;
         this.expenseName = builder.expenseName;
         this.expenseDescription = builder.expenseDescription;
         this.expenseAmount = builder.expenseAmount;
@@ -34,6 +35,7 @@ public class ClubExpense implements Serializable{
     public static class Builder{
 
         private String expenseID;
+        private Date date;
         private String expenseName;
         private String expenseDescription;
         private float expenseAmount;
@@ -43,6 +45,11 @@ public class ClubExpense implements Serializable{
 
         public Builder expenseID(String value) {
             this.expenseID = value;
+            return this;
+        }
+
+        public Builder date(Date value) {
+            this.date = value;
             return this;
         }
 
@@ -75,10 +82,19 @@ public class ClubExpense implements Serializable{
             this.administrator = value;
             return this;
         }
+
+        public ClubExpense build(){
+
+            return new ClubExpense(this);
+        }
     }
 
     public String getExpenseID() {
         return expenseID;
+    }
+
+    public Date getDate() {
+        return date;
     }
 
     public String getExpenseName() {
@@ -119,6 +135,20 @@ public class ClubExpense implements Serializable{
     @Override
     public int hashCode() {
         return expenseID.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "ClubExpense{" +
+                "expenseID='" + expenseID + '\'' +
+                ", date=" + date +
+                ", expenseName='" + expenseName + '\'' +
+                ", expenseDescription='" + expenseDescription + '\'' +
+                ", expenseAmount=" + expenseAmount +
+                ", expenseTotal=" + expenseTotal +
+                ", expenseAuthorization='" + expenseAuthorization + '\'' +
+                ", administrator=" + administrator +
+                '}';
     }
 }
 
