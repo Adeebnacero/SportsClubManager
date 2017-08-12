@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.testng.Assert.assertEquals;
@@ -19,7 +20,7 @@ public class PlayerFactoryTest {
 
     Player player;
     ContactDetails contactDetails;
-    PlayerSubscription playerSubscription;
+    List<PlayerSubscription> playerSubscription;
     Map<String, String> play;
     Map<String, String> con;
     Map<String, String> sub;

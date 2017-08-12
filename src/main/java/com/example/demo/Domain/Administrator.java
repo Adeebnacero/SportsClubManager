@@ -1,22 +1,29 @@
 package com.example.demo.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Adeebo on 2017/08/05.
  */
+@Entity
 public class Administrator implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String clubID;
     private String firstName;
     private String lastName;
-    private int DOB;
+    private Long DOB;
     private String status;
     private ContactDetails contactDetails;
     private List<Wages> wages;
 
-    public Administrator() {
+    protected Administrator() {
     }
 
     public Administrator (Builder builder){
@@ -35,7 +42,7 @@ public class Administrator implements Serializable {
         private String clubID;
         private String firstName;
         private String lastName;
-        private int DOB;
+        private Long DOB;
         private String status;
         private ContactDetails contactDetails;
         private List<Wages> wages;
@@ -55,7 +62,7 @@ public class Administrator implements Serializable {
             return this;
         }
 
-        public Builder DOB(int value) {
+        public Builder DOB(Long value) {
             this.DOB = value;
             return this;
         }
@@ -89,7 +96,7 @@ public class Administrator implements Serializable {
         return contactDetails;
     }
 
-    public int getDOB() {
+    public Long getDOB() {
         return DOB;
     }
 
