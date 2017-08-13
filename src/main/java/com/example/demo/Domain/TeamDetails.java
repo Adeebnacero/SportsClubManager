@@ -115,13 +115,13 @@ public class TeamDetails implements Serializable{
 
     @Override
     public String toString() {
-        return "TeamDetails{" +
-                "teamID='" + teamID + '\'' +
-                ", teamName='" + teamName + '\'' +
-                ", teamDivision='" + teamDivision + '\'' +
-                ", playerTotal=" + playerTotal +
-                ", coach=" + coach +
-                ", player=" + player +
-                '}';
+        return "***TeamDetails***" +
+                "TeamID: " + teamID + '\n' +
+                "TeamName: " + teamName + '\n' +
+                "TeamDivision: " + teamDivision + '\n' +
+                "PlayerTotal: " + playerTotal + '\n' +
+                coach + '\n' +
+                player + '\n' +
+                "*******************" + '\n';
     }
 }

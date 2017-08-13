@@ -10,8 +10,8 @@ public class Wages {
     private String wageID;
     private Date date;
     private int hours;
-    private float rate;
-    private float total;
+    private double rate;
+    private double total;
 
     public Wages() {
     }
@@ -30,8 +30,8 @@ public class Wages {
         private String wageID;
         private Date date;
         private int hours;
-        private float rate;
-        private float total;
+        private double rate;
+        private double total;
 
         public Builder wageID(String value) {
             this.wageID = value;
@@ -48,13 +48,13 @@ public class Wages {
             return this;
         }
 
-        public Builder rate(float value) {
+        public Builder rate(double value) {
             this.rate = value;
             return this;
         }
 
-        public Builder total(float total) {
-            this.total = rate * hours;
+        public Builder total(double value) {
+            this.total = value;
             return this;
         }
 
@@ -76,11 +76,12 @@ public class Wages {
         return hours;
     }
 
-    public float getRate() {
+    public double getRate() {
         return rate;
     }
 
-    public float getTotal() {
+    public double getTotal() {
+        total = rate * hours;
         return total;
     }
 
@@ -91,23 +92,23 @@ public class Wages {
 
         Wages wages = (Wages) o;
 
-        return Float.compare(wages.total, total) == 0;
+        return wageID.equals(wages.wageID);
 
     }
 
     @Override
     public int hashCode() {
-        return (total != +0.0f ? Float.floatToIntBits(total) : 0);
+        return wageID.hashCode();
     }
 
     @Override
     public String toString() {
-        return "Wages{" +
-                "wageID='" + wageID + '\'' +
-                ", date=" + date +
-                ", hours=" + hours +
-                ", rate=" + rate +
-                ", total=" + total +
-                '}';
+        return "***Wages***" + '\n' +
+                "WageID: " + wageID + '\n' +
+                "Date: " + date + '\n' +
+                "Hours:" + hours + '\n' +
+                "Rate: R" + rate + '\n' +
+                "Total: R" + getTotal() + '\n' +
+                "****************" + '\n' ;
     }
 }

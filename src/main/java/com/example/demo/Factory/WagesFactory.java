@@ -10,14 +10,13 @@ import java.util.Map;
  */
 public class WagesFactory {
 
-    public static Wages getWages (Map<String, String> values, Date date, int hours, float rate, float total){
+    public static Wages getWages (Map<String, String> values, Date date, int hours, double rate){
 
         Wages wages = new Wages.Builder()
                 .wageID(values.get("wageID"))
                 .date(date)
                 .hours(hours)
                 .rate(rate)
-                .total(total)
                 .build();
         return wages;
     }
