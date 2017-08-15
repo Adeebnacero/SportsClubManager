@@ -14,7 +14,6 @@ public class DemoApplication {
     public static void main (String[]args){
 
         SpringApplication.run(Application.class);
+        //new SpringApplicationBuilder(Application.class).web(false).run(args);
     }
-
-
 }
